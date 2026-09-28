@@ -66,9 +66,9 @@
 <!-- HEADER -->
 <header class="top" data-top>
   <div class="wrap top__row">
-    <a class="brand" href="#top" aria-label="Даниил(Eksailed), в начало страницы">
-      <div class="brand__avatar">Д</div>
-      <span class="brand__name">Даниил</span>
+    <a class="brand" href="#top" aria-label="Даниил Рождественский, в начало страницы">
+      <img class="brand__face" src="avatar.jpg" alt="" width="42" height="42">
+      <span class="brand__name">Даниил Рождественский</span>
     </a>
 
     <nav class="nav" id="nav" aria-label="Разделы">
@@ -131,35 +131,35 @@
       </div>
 
       <div class="hero__art">
-        <div class="stack-card">
-          <div class="hero-profile">
-            <div class="hero-profile__header">
-              <div class="hero-profile__avatar">ДР</div>
-              <div class="hero-profile__info">
-                <h3>Даниил Рождественский</h3>
-                <p>Eksailed • Junior+ Python & C# Developer</p>
-              </div>
+        <div class="stack">
+          <!-- Back preview card: Python & FastAPI -->
+          <div class="stack__shot stack__shot--back">
+            <div class="stack__shot-title">
+              <svg class="icon" style="width:14px;height:14px;" aria-hidden="true"><use href="#i-server"></use></svg>
+              <span>FastAPI & Python 3.11</span>
             </div>
-
-            <div class="hero-profile__chips">
-              <span class="chip chip--accent">Python 3.11</span>
-              <span class="chip chip--accent">C# (WinForms, WPF)</span>
-              <span class="chip">FastAPI</span>
-              <span class="chip">SQLAlchemy 2.0 Async</span>
-              <span class="chip">PostgreSQL</span>
-              <span class="chip">Redis</span>
-              <span class="chip">aiogram 3.x</span>
-              <span class="chip chip--accent">Qwen 2.5 72B</span>
-              <span class="chip">Unity C#</span>
-              <span class="chip">C++</span>
-              <span class="chip">Docker</span>
-            </div>
-
-            <div class="hero-profile__quote">
-              «Строю архитектуру проектов как инженер: чистое разделение слоев, строгая валидация Pydantic, безопасность и предсказуемый деплой».
+            <div class="stack__shot-code">
+              <code>@app.get("/api/chart")<br>async def get_natal():<br>&nbsp;&nbsp;return await calc()</code>
             </div>
           </div>
-          <div class="bubble"> Без посредников</div>
+
+          <!-- Front preview card: C# & WinForms -->
+          <div class="stack__shot stack__shot--front">
+            <div class="stack__shot-title">
+              <svg class="icon" style="width:14px;height:14px;" aria-hidden="true"><use href="#i-code"></use></svg>
+              <span>Windows Forms C#</span>
+            </div>
+            <div class="stack__shot-code">
+              <code>Application.Run(<br>&nbsp;&nbsp;new MainForm());</code>
+            </div>
+          </div>
+
+          <!-- Central Avatar Image -->
+          <div class="stack__avatar">
+            <img src="avatar.jpg" alt="Аватар Даниила Рождественского: парень с синими кудрями на крафтовом фоне" width="880" height="880" fetchpriority="high">
+          </div>
+
+          <p class="bubble">Пишите напрямую, без менеджеров</p>
         </div>
       </div>
     </div>

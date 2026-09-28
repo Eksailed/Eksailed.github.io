@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Eksailed: Python-разработчик, боты, бэкенд и ИИ-сервисы</title>
+  <meta name="description" content="Портфолио и резюме разработчика Eksailed. Бэкенд на Python (FastAPI, SQLAlchemy 2.0 Async), Telegram-боты и Mini Apps, интеграция нейросетей (LLM), Docker. Студент 2 курса ДонНУ, выпускник ДТПА, отслужил в армии.">
+  <meta name="theme-color" content="#dbeafe" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#070d1e" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Тема до отрисовки для предотвращения мерцания
+    (function () {
+      var d = document.documentElement;
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+
+<!-- SVG ICONS SPRITE -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-telegram" viewBox="0 0 256 256" fill="currentColor">
+    <path d="M231.49,23.16a13,13,0,0,0-13.23-2.26L15.6,100.21a18.22,18.22,0,0,0,3.12,34.86L68,144.74V200a20,20,0,0,0,34.4,13.88l22.67-23.51L162.35,223a20,20,0,0,0,32.7-10.54L235.67,35.91A13,13,0,0,0,231.49,23.16ZM139.41,77.52,77.22,122.09l-34.43-6.75ZM92,190.06V161.35l15,13.15Zm81.16,10.52L99.28,135.81,205.59,59.63Z"/>
+  </symbol>
+  <symbol id="i-github" viewBox="0 0 256 256" fill="currentColor">
+    <path d="M212.62,75.17A63.7,63.7,0,0,0,206.39,26,12,12,0,0,0,196,20a63.71,63.71,0,0,0-50,24H126A63.71,63.71,0,0,0,76,20a12,12,0,0,0-10.39,6,63.7,63.7,0,0,0-6.23,49.17A61.5,61.5,0,0,0,52,104v8a60.1,60.1,0,0,0,45.76,58.28A43.66,43.66,0,0,0,92,192v4H76a20,20,0,0,1-20-20,44.05,44.05,0,0,0-44-44,12,12,0,0,0,0,24,20,20,0,0,1,20,20,44.05,44.05,0,0,0,44,44H92v12a12,12,0,0,0,24,0V192a20,20,0,0,1,40,0v40a12,12,0,0,0,24,0V192a43.66,43.66,0,0,0-5.76-21.72A60.1,60.1,0,0,0,220,112v-8A61.5,61.5,0,0,0,212.62,75.17Z"/>
+  </symbol>
+  <symbol id="i-arrow" viewBox="0 0 256 256" fill="currentColor">
+    <path d="M204,64V168a12,12,0,0,1-24,0V93L72.49,200.49a12,12,0,0,1-17-17L163,76H88a12,12,0,0,1,0-24H192A12,12,0,0,1,204,64Z"/>
+  </symbol>
+  <symbol id="i-sun" viewBox="0 0 256 256" fill="currentColor">
+    <path d="M116,36V20a12,12,0,0,1,24,0V36a12,12,0,0,1-24,0Zm80,92a68,68,0,1,1-68-68A68.07,68.07,0,0,1,196,128Zm-24,0a44,44,0,1,0-44,44A44.05,44.05,0,0,0,172,128ZM51.51,68.49a12,12,0,1,0,17-17l-12-12a12,12,0,0,0-17,17Zm0,119-12,12a12,12,0,0,0,17,17l12-12a12,12,0,1,0-17-17ZM196,72a12,12,0,0,0,8.49-3.51l12-12a12,12,0,0,0-17-17l-12,12A12,12,0,0,0,196,72Zm8.49,115.51a12,12,0,0,0-17,17l12,12a12,12,0,0,0,17-17ZM48,128a12,12,0,0,0-12-12H20a12,12,0,0,0,0,24H36A12,12,0,0,0,48,128Zm80,80a12,12,0,0,0-12,12v16a12,12,0,0,0,24,0V220A12,12,0,0,0,128,208Zm108-92H220a12,12,0,0,0,0,24h16a12,12,0,0,0,0-24Z"/>
+  </symbol>
+  <symbol id="i-moon" viewBox="0 0 256 256" fill="currentColor">
+    <path d="M236.37,139.4a12,12,0,0,0-12-3A84.07,84.07,0,0,1,119.6,31.59a12,12,0,0,0-15-15A108.86,108.86,0,0,0,49.69,55.07,108,108,0,0,0,136,228a107.09,107.09,0,0,0,64.93-21.69,108.86,108.86,0,0,0,38.44-54.94A12,12,0,0,0,236.37,139.4Zm-49.88,47.74A84,84,0,0,1,68.86,69.51,84.93,84.93,0,0,1,92.27,48.29Q92,52.13,92,56A108.12,108.12,0,0,0,200,164q3.87,0,7.71-.27A84.79,84.79,0,0,1,186.49,187.14Z"/>
+  </symbol>
+  <symbol id="i-menu" viewBox="0 0 256 256" fill="currentColor">
+    <path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128ZM40,76H216a12,12,0,0,0,0-24H40a12,12,0,0,0,0,24ZM216,180H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24Z"/>
+  </symbol>
+  <symbol id="i-close" viewBox="0 0 256 256" fill="currentColor">
+    <path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"/>
+  </symbol>
+  <symbol id="i-code" viewBox="0 0 256 256" fill="currentColor">
+    <path d="M69.66,181.66a8,8,0,0,1-11.32,0l-48-48a8,8,0,0,1,0-11.32l48-48a8,8,0,0,1,11.32,11.32L27.31,128l42.35,42.34A8,8,0,0,1,69.66,181.66Zm176-59.32-48-48a8,8,0,0,0-11.32,11.32L228.69,128l-42.35,42.34a8,8,0,0,0,11.32,11.32l48-48A8,8,0,0,0,245.66,122.34ZM161.42,33.15a8,8,0,0,0-10.27,5.43l-64,200a8,8,0,0,0,5.43,10.27,7.84,7.84,0,0,0,2.42.38,8,8,0,0,0,7.85-5.81l64-200A8,8,0,0,0,161.42,33.15Z"/>
+  </symbol>
+  <symbol id="i-doc" viewBox="0 0 256 256" fill="currentColor">
+    <path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,160H40V56H216V200ZM72,88a8,8,0,0,1,8-8h96a8,8,0,0,1,0,16H80A8,8,0,0,1,72,88Zm0,32a8,8,0,0,1,8-8h96a8,8,0,0,1,0,16H80A8,8,0,0,1,72,120Zm0,32a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H80A8,8,0,0,1,72,152Z"/>
+  </symbol>
+  <symbol id="i-sparkle" viewBox="0 0 256 256" fill="currentColor">
+    <path d="M199,125.31l-49.88-18.39L130.69,57a19.92,19.92,0,0,0-37.38,0L74.92,106.92,25,125.31a19.92,19.92,0,0,0,0,37.38l49.88,18.39L93.31,231a19.92,19.92,0,0,0,37.38,0l18.39-49.88L199,162.69a19.92,19.92,0,0,0,0-37.38Z"/>
+  </symbol>
+  <symbol id="i-server" viewBox="0 0 256 256" fill="currentColor">
+    <path d="M208,36H48A20,20,0,0,0,28,56V200a20,20,0,0,0,20,20H208a20,20,0,0,0,20-20V56A20,20,0,0,0,208,36Zm-4,24v56H52V60ZM52,196V140H204v56ZM160,88a16,16,0,1,1,16,16A16,16,0,0,1,160,88Zm32,80a16,16,0,1,1-16-16A16,16,0,0,1,192,168Z"/>
+  </symbol>
+  <symbol id="i-robot" viewBox="0 0 256 256" fill="currentColor">
+    <path d="M72,104a16,16,0,1,1,16,16A16,16,0,0,1,72,104Zm96,16a16,16,0,1,0-16-16A16,16,0,0,0,168,120Zm68-40V192a36,36,0,0,1-36,36H56a36,36,0,0,1-36-36V80A36,36,0,0,1,56,44h60V16a12,12,0,0,1,24,0V44h60A36,36,0,0,1,236,80Zm-24,0a12,12,0,0,0-12-12H56A12,12,0,0,0,44,80V192a12,12,0,0,0,12,12H200a12,12,0,0,0,12-12Z"/>
+  </symbol>
+</svg>
+
+<!-- HEADER -->
+<header class="top" data-top>
+  <div class="wrap top__row">
+    <a class="brand" href="#top" aria-label="Eksailed, в начало страницы">
+      <div class="brand__avatar">E</div>
+      <span class="brand__name">Eksailed</span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Разделы">
+      <a href="#projects">Работы</a>
+      <a href="#ai-tech">ИИ & Стек</a>
+      <a href="#services">Услуги</a>
+      <a href="#process">Процесс</a>
+      <a href="#about">Обо мне</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+
+    <div class="top__actions">
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Сменить тему">
+        <svg class="icon icon--moon" aria-hidden="true"><use href="#i-moon"></use></svg>
+        <svg class="icon icon--sun" aria-hidden="true"><use href="#i-sun"></use></svg>
+      </button>
+
+      <a class="btn btn--primary btn--sm top__tg" href="https://t.me/Eksailed" target="_blank" rel="noopener">
+        <svg class="icon" aria-hidden="true"><use href="#i-telegram"></use></svg>
+        <span>Telegram</span>
+      </a>
+
+      <button class="icon-btn nav-toggle" type="button" aria-controls="nav" aria-expanded="false" aria-label="Открыть меню">
+        <svg class="icon icon--menu" aria-hidden="true"><use href="#i-menu"></use></svg>
+        <svg class="icon icon--close" aria-hidden="true"><use href="#i-close"></use></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- 1. HERO SECTION -->
+  <section class="hero" id="top">
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <div class="hero__badge-row">
+          <span class="badge badge--accent">🎓 ДонНУ (2 курс)</span>
+          <span class="badge">🛠 Выпускник ДТПА</span>
+          <span class="badge badge--military">🎖 Срочная служба пройдена</span>
+        </div>
+
+        <h1 class="hero__title">Python-бэкенд, умные боты и&nbsp;<span>ИИ-сервисы</span></h1>
+        
+        <p class="hero__lead">
+          Разрабатываю надежный асинхронный бэкенд на <strong>FastAPI</strong> и <strong>PostgreSQL</strong>, высоконагруженные Telegram-боты на <strong>aiogram 3.x</strong>, Telegram Mini Apps на <strong>React 18</strong> и сервисы с интеграцией <strong>LLM-моделей</strong>. Всё упаковываю в <strong>Docker Compose</strong>.
+        </p>
+
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="https://t.me/Eksailed" target="_blank" rel="noopener">
+            <svg class="icon" aria-hidden="true"><use href="#i-telegram"></use></svg>
+            <span>Написать в Telegram</span>
+          </a>
+          <a class="btn btn--ghost" href="#projects">Смотреть работы</a>
+          <a class="btn btn--ghost" href="Resume_Python_Developer.docx" download="Resume_Python_Developer.docx">
+            <svg class="icon" aria-hidden="true"><use href="#i-doc"></use></svg>
+            <span>Резюме (.docx)</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero__art">
+        <div class="stack-card">
+          <div class="hero-profile">
+            <div class="hero-profile__header">
+              <div class="hero-profile__avatar">E</div>
+              <div class="hero-profile__info">
+                <h3>Eksailed</h3>
+                <p>Junior+ Python Backend & Bot Dev</p>
+              </div>
+            </div>
+
+            <div class="hero-profile__chips">
+              <span class="chip chip--accent">Python 3.11</span>
+              <span class="chip">FastAPI</span>
+              <span class="chip">SQLAlchemy 2.0 Async</span>
+              <span class="chip">PostgreSQL</span>
+              <span class="chip">Redis</span>
+              <span class="chip">aiogram 3.x</span>
+              <span class="chip chip--accent">Qwen 2.5 72B</span>
+              <span class="chip">Windows Forms C#</span>
+              <span class="chip">C++</span>
+              <span class="chip">Unity C#</span>
+              <span class="chip">Docker</span>
+            </div>
+
+            <div class="hero-profile__quote">
+              «Строю архитектуру проектов как инженер: чистое разделение слоев, строгая валидация Pydantic, безопасность и предсказуемый деплой».
+            </div>
+          </div>
+          <div class="bubble">Военный билет на руках • Без посредников</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. PROJECTS (BENTO GRID) -->
+  <section class="section section--band" id="projects">
+    <div class="wrap">
+      <header class="section__head">
+        <h2 class="section__title">Проекты и работы</h2>
+        <p class="section__lead">Реальные законченные проекты с чистой архитектурой. Весь код открыт на GitHub.</p>
+      </header>
+
+      <div class="bento">
+
+        <!-- Case 1: AstroBot (Hero Bento) -->
+        <article class="case case--hero">
+          <div class="case__body">
+            <div>
+              <span class="case__role case__role--own">Флагманский проект</span>
+              <h3 class="case__title">AstroBot — Персональный AI-астролог + Mini App</h3>
+              <p class="case__text">
+                Полноценная экосистема персонализированного астрологического сервиса: высокоточные астрономические расчеты швейцарских эфемерид (Swiss Ephemeris), контекстный чат с ИИ на базе <strong>Qwen 2.5 72B</strong>, Telegram Stars монетизация и встроенный интерактивный Mini App на React 18.
+              </p>
+              <ul class="case__highlights">
+                <li>Модульная архитектура: жесткое разделение слоев (bot, api, services, db, webapp)</li>
+                <li>FastAPI REST API с криптографической валидацией HMAC-SHA256 (Telegram initData)</li>
+                <li>PostgreSQL + SQLAlchemy 2.0 Async + asyncpg + миграции Alembic</li>
+                <li>Redis для суточных лимитов запросов (Rate Limiting) и сессий</li>
+                <li>Монетизация через Telegram Stars (XTR) и подписку PRO</li>
+                <li>Полная контейнеризация всей связки сервисов в Docker Compose</li>
+              </ul>
+            </div>
+
+            <div>
+              <ul class="tags" aria-label="Технологии">
+                <li>Python 3.11</li><li>aiogram 3.x</li><li>FastAPI</li><li>SQLAlchemy 2.0</li><li>PostgreSQL</li><li>Redis</li><li>React 18</li><li>Docker</li><li>pyswisseph</li>
+              </ul>
+              <a class="case__link" href="https://github.com/Eksailed/astrobot" target="_blank" rel="noopener">
+                Репозиторий astrobot на GitHub <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="case__media">
+            <div class="code-preview">
+<span class="cm"># AstroBot Architecture Overview</span>
+<span class="kw">from</span> fastapi <span class="kw">import</span> FastAPI, Depends
+<span class="kw">from</span> aiogram <span class="kw">import</span> Bot, Dispatcher
+<span class="kw">from</span> sqlalchemy.ext.asyncio <span class="kw">import</span> AsyncSession
+<span class="kw">import</span> swisseph <span class="kw">as</span> swe
+
+<span class="kw">async def</span> <span class="fn">generate_ai_consultation</span>(user_id: <span class="fn">int</span>, session: AsyncSession):
+    chart = <span class="kw">await</span> get_natal_chart(session, user_id)
+    transits = swe.calc_ut(chart.utc_birth_time)
+    
+    <span class="cm"># Dynamic injection of natal passport into LLM</span>
+    response = <span class="kw">await</span> openrouter.chat(
+        model=<span class="str">"qwen/qwen-2.5-72b-instruct"</span>,
+        context=chart.get_prompt_context(transits)
+    )
+    <span class="kw">return</span> response
+            </div>
+          </div>
+        </article>
+
+        <!-- Case 2: Football Bot (Half Bento) -->
+        <article class="case case--half">
+          <div class="case__body">
+            <div>
+              <span class="case__role">Свой проект</span>
+              <h3 class="case__title">Football Bot — Аналитика лиг и уведомления</h3>
+              <p class="case__text">
+                Асинхронный сервис агрегации турнирных данных и результатов европейских футбольных лиг (АПЛ, Ла Лига, Серия А, Бундеслига, Лига чемпионов).
+              </p>
+              <ul class="case__highlights">
+                <li>Интеграция внешних REST API футбольной статистики с парсингом расписания</li>
+                <li>Фоновый планировщик задач (APScheduler) для регулярного обновления календаря</li>
+                <li>Автоматический экспорт сводной статистики в форматированный Excel (.xlsx) через openpyxl</li>
+                <li>Деплой и непрерывная работа в облачной инфраструктуре Railway с базой PostgreSQL</li>
+              </ul>
+            </div>
+
+            <div>
+              <ul class="tags">
+                <li>Python</li><li>python-telegram-bot</li><li>PostgreSQL</li><li>APScheduler</li><li>openpyxl</li><li>Railway</li>
+              </ul>
+              <a class="case__link" href="https://github.com/Eksailed/football_bot" target="_blank" rel="noopener">
+                Репозиторий football_bot <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Case 3: TheBestGameEver (Half Bento) -->
+        <article class="case case--half">
+          <div class="case__body">
+            <div>
+              <span class="case__role">Gamedev & C#</span>
+              <h3 class="case__title">TheBestGameEver — 3D Action на Unity</h3>
+              <p class="case__text">
+                Полноценный 3D экшен-шутер на движке Unity с проработанной игровой механикой, оружием и поведением противников.
+              </p>
+              <ul class="case__highlights">
+                <li>Контроллер персонажа от 3-го лица с физикой, прыжками и обработкой столкновений</li>
+                <li>Боевая система: баллистика гранат, магия, спавн снарядов и система урона/здоровья</li>
+                <li>Искусственный интеллект врагов на конечных автоматах (FSM Enemy AI) и настраиваемые спавнеры</li>
+                <li>Чистая реализация паттернов ООП и компонентной модели Unity</li>
+              </ul>
+            </div>
+
+            <div>
+              <ul class="tags">
+                <li>C#</li><li>Unity Engine</li><li>3D Physics</li><li>FSM AI</li><li>Game Logic</li>
+              </ul>
+              <a class="case__link" href="https://github.com/Eksailed/TheBestGameEver" target="_blank" rel="noopener">
+                Репозиторий TheBestGameEver <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. AI & TECH TABS -->
+  <section class="section" id="ai-tech">
+    <div class="wrap">
+      <header class="section__head">
+        <h2 class="section__title">ИИ и технологии в деле</h2>
+        <p class="section__lead">Решения, проверенные на практике: с обработкой ошибок, асинхронностью и масштабируемостью.</p>
+      </header>
+
+      <div class="ai-tabs">
+        <div class="ai-tabs__nav" role="tablist">
+          <button class="ai-tab" role="tab" id="tab-llm" aria-controls="panel-llm" aria-selected="true">
+            <svg class="icon" aria-hidden="true"><use href="#i-sparkle"></use></svg>
+            <span>ИИ и LLM-интеграции</span>
+          </button>
+          <button class="ai-tab" role="tab" id="tab-backend" aria-controls="panel-backend" aria-selected="false">
+            <svg class="icon" aria-hidden="true"><use href="#i-server"></use></svg>
+            <span>FastAPI & Асинхронная БД</span>
+          </button>
+          <button class="ai-tab" role="tab" id="tab-bots" aria-controls="panel-bots" aria-selected="false">
+            <svg class="icon" aria-hidden="true"><use href="#i-robot"></use></svg>
+            <span>Боты & Telegram Mini Apps</span>
+          </button>
+          <button class="ai-tab" role="tab" id="tab-infra" aria-controls="panel-infra" aria-selected="false">
+            <svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>
+            <span>Docker & Архитектура</span>
+          </button>
+        </div>
+
+        <div class="ai-panels">
+          <!-- Panel 1: LLM -->
+          <div class="ai-panel is-active" role="tabpanel" id="panel-llm" aria-labelledby="tab-llm">
+            <div class="ai-panel__text">
+              <h3>Нейросети с контекстной инъекцией</h3>
+              <p>Вместо стандартных шаблонных ответов — динамическая подмешивание актуальных данных в системный промпт модели <strong>Qwen 2.5 72B</strong> через OpenRouter API.</p>
+              <ul class="checks">
+                <li>Точная инъекция натального паспорта и транзитов планет в контекстное окно модели.</li>
+                <li>Обработка суточных квот и лимитов токенов с мягким объяснением пользователю.</li>
+                <li>Строгая валидация входящих и выходящих данных через Pydantic v2.</li>
+                <li>Защита персональных данных: команда полного удаления истории (/delete, GDPR compliance).</li>
+              </ul>
+              <p class="ai-panel__where">Реализовано в проекте AstroBot.</p>
+            </div>
+            <div class="ai-panel__code">
+              <div class="code-preview">
+<span class="kw">async def</span> <span class="fn">query_astrology_ai</span>(prompt: <span class="fn">str</span>, chart: NatalChart):
+    system_prompt = f<span class="str">"""
+    Ты профессиональный астролог.
+    Натальные данные пользователя:
+    Солнце в {chart.sun_sign}, Асцендент в {chart.ascendant}.
+    Отвечай глубоко, экологично и по делу.
+    """</span>
+    <span class="kw">return await</span> openrouter.chat_completion(
+        model=<span class="str">"qwen/qwen-2.5-72b-instruct"</span>,
+        messages=[{<span class="str">"role"</span>: <span class="str">"system"</span>, <span class="str">"content"</span>: system_prompt}]
+    )
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 2: Backend -->
+          <div class="ai-panel" role="tabpanel" id="panel-backend" aria-labelledby="tab-backend">
+            <div class="ai-panel__text">
+              <h3>Асинхронный бэкенд без узких мест</h3>
+              <p>Использую современный стек Python 3.11+: FastAPI, асинхронный SQLAlchemy 2.0 с драйвером <code>asyncpg</code> и Redis для мгновенного кэширования.</p>
+              <ul class="checks">
+                <li>Паттерн Repository для изоляции бизнес-логики от базы данных.</li>
+                <li>Автоматические миграции схемы БД через Alembic.</li>
+                <li>Контроль частоты запросов (Rate Limiting) через Redis.</li>
+                <li>Валидация Telegram WebApp <code>initData</code> по алгоритму HMAC-SHA256.</li>
+              </ul>
+              <p class="ai-panel__where">Отработано в бэкенд-сервисе AstroBot API.</p>
+            </div>
+            <div class="ai-panel__code">
+              <div class="code-preview">
+<span class="cm"># Async DB Session Middleware</span>
+<span class="kw">class</span> <span class="fn">DbSessionMiddleware</span>(BaseMiddleware):
+    <span class="kw">async def</span> <span class="fn">__call__</span>(self, handler, event, data):
+        <span class="kw">async with</span> self.session_pool() <span class="kw">as</span> session:
+            data[<span class="str">"session"</span>] = session
+            <span class="kw">return await</span> handler(event, data)
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 3: Bots & Mini Apps -->
+          <div class="ai-panel" role="tabpanel" id="panel-bots" aria-labelledby="tab-bots">
+            <div class="ai-panel__text">
+              <h3>Telegram Mini Apps нового поколения</h3>
+              <p>Разработка полноценных SPA-приложений внутри Telegram на базе React 18, Vite, TailwindCSS и официального <code>@telegram-apps/sdk-react</code>.</p>
+              <ul class="checks">
+                <li>Плавный интерфейс, адаптированный под мобильные устройства и тему Telegram.</li>
+                <li>Приём платежей Telegram Stars (валюта XTR) с мгновенной активацией подписки.</li>
+                <li>Машины состояний (FSM) в aiogram для пошагового сбора данных.</li>
+                <li>Интерактивные интерактивные кнопки, меню и WebApp popups.</li>
+              </ul>
+              <p class="ai-panel__where">Работает в AstroBot Mini App.</p>
+            </div>
+            <div class="ai-panel__code">
+              <div class="code-preview">
+<span class="cm">// React 18 Telegram Mini App</span>
+<span class="kw">import</span> { useLaunchParams, initData } <span class="kw">from</span> <span class="str">'@telegram-apps/sdk-react'</span>;
+
+<span class="kw">export function</span> <span class="fn">App</span>() {
+  <span class="kw">const</span> lp = useLaunchParams();
+  <span class="kw">return</span> (
+    &lt;div className=<span class="str">"min-h-screen bg-slate-900 text-white p-4"</span>&gt;
+      &lt;h1&gt;Ваша натальная карта&lt;/h1&gt;
+    &lt;/div&gt;
+  );
+}
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 4: Docker & Infra -->
+          <div class="ai-panel" role="tabpanel" id="panel-infra" aria-labelledby="tab-infra">
+            <div class="ai-panel__text">
+              <h3>Предсказуемый деплой в Docker</h3>
+              <p>Любой проект упаковывается в <code>docker-compose.yml</code> и разворачивается одной командой на любом Linux VPS без проблем с зависимостями.</p>
+              <ul class="checks">
+                <li>Мультиконтейнерная сборка: PostgreSQL 15 + Redis 7 + FastAPI Backend + Telegram Bot.</li>
+                <li>Изоляция сетевого окружения (bridge networks) и персистентные тома для данных (volumes).</li>
+                <li>Healthcheck-проверки и автоматический перезапуск упавших контейнеров.</li>
+                <li>Фоновые периодические задачи через APScheduler.</li>
+              </ul>
+              <p class="ai-panel__where">Готовая конфигурация в репозиториях astrobot и football_bot.</p>
+            </div>
+            <div class="ai-panel__code">
+              <div class="code-preview">
+<span class="cm"># docker-compose.yml</span>
+services:
+  db:
+    image: postgres:15-alpine
+    volumes: [postgres_data:/var/lib/postgresql/data]
+  redis:
+    image: redis:7-alpine
+  bot:
+    build: .
+    depends_on: [db, redis]
+    restart: unless-stopped
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. SERVICES -->
+  <section class="section section--band" id="services">
+    <div class="wrap">
+      <header class="section__head">
+        <h2 class="section__title">Чем могу помочь</h2>
+        <p class="section__lead">Берусь как за разработку с нуля, так и за усиление существующей команды.</p>
+      </header>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-card__icon"><svg class="icon"><use href="#i-server"></use></svg></div>
+          <h3>Бэкенд на Python & REST API</h3>
+          <p>Проектирование и разработка масштабируемых API на FastAPI, чистая архитектура, строгая валидация Pydantic, безопасность и авторизация.</p>
+          <div class="service-card__where">FastAPI, SQLAlchemy 2.0, asyncpg, Alembic</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__icon"><svg class="icon"><use href="#i-robot"></use></svg></div>
+          <h3>Telegram-боты & Mini Apps</h3>
+          <p>Сложные боты на aiogram 3.x: FSM-сценарии, Webhooks, Telegram Stars платежи, подключение React Mini Apps и админок.</p>
+          <div class="service-card__where">aiogram 3, python-telegram-bot, React, Stars</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__icon"><svg class="icon"><use href="#i-sparkle"></use></svg></div>
+          <h3>Интеграция ИИ & LLM</h3>
+          <p>Внедрение нейросетей (Qwen, GPT, Claude, OpenRouter) в бизнес-процессы: умные ассистенты, контекстная инъекция, промпт-инжиниринг.</p>
+          <div class="service-card__where">OpenRouter, Qwen 2.5 72B, Prompt Design</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__icon"><svg class="icon"><use href="#i-code"></use></svg></div>
+          <h3>Базы данных & Оптимизация</h3>
+          <p>Проектирование структуры PostgreSQL, оптимизация запросов, настройка миграций и кэширования через Redis для высоких нагрузок.</p>
+          <div class="service-card__where">PostgreSQL, SQLite, Redis, индексация</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__icon"><svg class="icon"><use href="#i-doc"></use></svg></div>
+          <h3>Парсинг & Автоматизация</h3>
+          <p>Сбор данных со сторонних API и сайтов, парсинг спортивных данных, расписаний, регулярные отчеты в Excel (.xlsx) и Telegram.</p>
+          <div class="service-card__where">APScheduler, httpx, openpyxl, cron</div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__icon"><svg class="icon"><use href="#i-arrow"></use></svg></div>
+          <h3>Десктоп C# / WinForms & C++</h3>
+          <p>Разработка прикладных настольных приложений на C# (Windows Forms, WPF) с привязкой к базам данных, алгоритмов на C++, а также игровых механик на Unity Engine.</p>
+          <div class="service-card__where">Windows Forms, C#, C++, Unity 3D, ООП</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. HOW I WORK -->
+  <section class="section" id="process">
+    <div class="wrap process-grid">
+      <div>
+        <header class="section__head">
+          <h2 class="section__title">Как работаю</h2>
+          <p class="section__lead">Прозрачный инженерный подход без скрытых нюансов и срывов сроков.</p>
+        </header>
+
+        <ol class="steps">
+          <li class="step">
+            <h3>Обсуждение задачи</h3>
+            <p>Вы описываете задачу в Telegram. Я задаю уточняющие вопросы, формирую понимание архитектуры и логики.</p>
+          </li>
+          <li class="step">
+            <h3>Оценка и планирование</h3>
+            <p>Определяю технический стек, делю проект на понятные этапы, называю реалистичные сроки и договоренности.</p>
+          </li>
+          <li class="step">
+            <h3>Разработка и ежедневный отчет</h3>
+            <p>Пишу чистый асинхронный код с комментариями и типизацией. Вечером присылаю отчет о проделанной работе.</p>
+          </li>
+          <li class="step">
+            <h3>Тестирование и Docker-деплой</h3>
+            <p>Упаковываю всё в Docker Compose, разворачиваю на сервере, проверяю крайние случаи и отдаю готовую документацию.</p>
+          </li>
+          <li class="step">
+            <h3>Поддержка</h3>
+            <p>Остаюсь на связи после сдачи, оперативно вношу правки и помогаю с развитием функционала.</p>
+          </li>
+        </ol>
+      </div>
+
+      <div>
+        <div class="report-card">
+          <div class="report-bubble">
+            <div class="report-tag">#отчет за день (AstroBot)</div>
+            <ul>
+              <li>Настроил валидацию initData по HMAC-SHA256 в FastAPI</li>
+              <li>Подключил OpenRouter API (Qwen 2.5 72B) с контекстом натала</li>
+              <li>Проверил тестовую оплату через Telegram Stars</li>
+              <li>Собрал Docker Compose: Postgres + Redis + Bot + API</li>
+            </ul>
+          </div>
+          <div class="report-caption">Пример вечернего отчета о разработке</div>
+        </div>
+
+        <div class="note-box">
+          <svg class="icon" aria-hidden="true" style="color:var(--accent);"><use href="#i-sparkle"></use></svg>
+          <span>В разработке активно использую современные инструменты и ИИ-ассистентов для ускорения рутины. Постановку архитектуры, контроль качества кода и тестирование всегда делаю сам.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. ABOUT & EDUCATION -->
+  <section class="section section--band" id="about">
+    <div class="wrap about-grid">
+      <div class="about-text">
+        <header class="section__head">
+          <h2 class="section__title">Обо мне</h2>
+        </header>
+        <p>
+          Меня зовут [Имя], в сети известен как <strong>Eksailed</strong>. Я бэкенд-разработчик на Python с хорошей фундаментальной инженерной базой и тягой к чистому коду.
+        </p>
+        <p>
+          Учусь на <strong>2 курсе Донецкого национального университета (ДонНУ)</strong>. До поступления в университет окончил <strong>Донецкий техникум промышленной автоматики (ДТПА)</strong>, получив диплом о среднем профессиональном образовании в сфере вычислительных систем и автоматики.
+        </p>
+        <p>
+          <strong>Срочную службу в армии отслужил</strong> — вопрос с призывом закрыт полностью, военный билет на руках. Это позволяет мне полностью сосредоточиться на работе и профессиональном росте без юридических рисков для работодателя.
+        </p>
+
+        <div class="edu-timeline">
+          <div class="edu-item">
+            <div class="edu-item__year">2023 — НАСТОЯЩЕЕ ВРЕМЯ</div>
+            <h4>Донецкий национальный университет (ДонНУ / ДонГУ)</h4>
+            <p>Факультет математики и информационных технологий / Компьютерных наук. 2 курс бакалавриата.</p>
+          </div>
+          <div class="edu-item">
+            <div class="edu-item__year">ОКОНЧИЛ (СПО)</div>
+            <h4>Донецкий техникум промышленной автоматики (ДТПА)</h4>
+            <p>Диплом о среднем профессиональном образовании в области автоматизации, схемотехники и программирования.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="facts-card">
+        <dl class="facts-list">
+          <div class="fact-row"><dt>Статус</dt><dd>Студент 2 курса ДонНУ, готов к полной/частичной занятости</dd></div>
+          <div class="fact-row"><dt>Воинский учет</dt><dd>Срочная служба пройдена, военный билет на руках</dd></div>
+          <div class="fact-row"><dt>Локация</dt><dd>Донецк / Удаленная работа по РФ / Готов к релокации</dd></div>
+          <div class="fact-row"><dt>Часовой пояс</dt><dd>Москва (UTC+3)</dd></div>
+          <div class="fact-row"><dt>GitHub</dt><dd><a href="https://github.com/Eksailed" target="_blank" rel="noopener">github.com/Eksailed</a></dd></div>
+        </dl>
+
+        <h3 class="facts-card__sub">Основной стек</h3>
+        <ul class="chips-list">
+          <li>Python 3.11</li><li>C# (Windows Forms, WPF)</li><li>C++</li><li>FastAPI</li><li>SQLAlchemy 2.0</li><li>asyncpg</li><li>aiogram 3</li><li>PostgreSQL</li><li>Redis</li><li>Docker</li><li>Git</li><li>Linux</li>
+        </ul>
+
+        <h3 class="facts-card__sub">ИИ и инструменты</h3>
+        <ul class="chips-list chips-list--accent">
+          <li>Qwen 2.5 72B</li><li>OpenRouter</li><li>Telegram Stars</li><li>React 18</li><li>Unity C#</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. BRIEF & CONTACT -->
+  <section class="section" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <header class="section__head">
+          <h2 class="section__title">Контакты</h2>
+          <p class="section__lead">Всегда открыт к интересным предложениям о работе, стажировкам и проектным задачам.</p>
+        </header>
+
+        <ul class="channels-list">
+          <li>
+            <a class="channel-link" href="https://t.me/Eksailed" target="_blank" rel="noopener">
+              <div class="channel-link__left">
+                <svg class="icon" aria-hidden="true"><use href="#i-telegram"></use></svg>
+                <span>Telegram</span>
+              </div>
+              <span class="channel-link__val">@Eksailed</span>
+            </a>
+          </li>
+          <li>
+            <a class="channel-link" href="https://github.com/Eksailed" target="_blank" rel="noopener">
+              <div class="channel-link__left">
+                <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg>
+                <span>GitHub</span>
+              </div>
+              <span class="channel-link__val">github.com/Eksailed</span>
+            </a>
+          </li>
+          <li>
+            <a class="channel-link" href="Resume_Python_Developer.docx" download="Resume_Python_Developer.docx">
+              <div class="channel-link__left">
+                <svg class="icon" aria-hidden="true"><use href="#i-doc"></use></svg>
+                <span>Резюме в Word (.docx)</span>
+              </div>
+              <span class="channel-link__val">Скачать файл</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Interactive Brief Builder -->
+      <div class="brief-box">
+        <h3 class="brief-box__title">Соберите задачу</h3>
+        <form data-brief novalidate>
+          <fieldset class="field">
+            <legend>Что требуется</legend>
+            <div class="pick-grid">
+              <label class="pick-item"><input type="checkbox" name="kind" value="Python-бэкенд (FastAPI)"><span>Python-бэкенд</span></label>
+              <label class="pick-item"><input type="checkbox" name="kind" value="Telegram-бот (aiogram)"><span>Telegram-бот</span></label>
+              <label class="pick-item"><input type="checkbox" name="kind" value="Telegram Mini App"><span>Telegram Mini App</span></label>
+              <label class="pick-item"><input type="checkbox" name="kind" value="Десктоп (Windows Forms C#)"><span>Десктоп (WinForms C#)</span></label>
+              <label class="pick-item"><input type="checkbox" name="kind" value="Алгоритмы / C++"><span>C++ / Системное ПО</span></label>
+              <label class="pick-item"><input type="checkbox" name="kind" value="Интеграция ИИ (LLM)"><span>Интеграция ИИ</span></label>
+              <label class="pick-item"><input type="checkbox" name="kind" value="Вакансия в штат"><span>Вакансия в штат</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Сроки / Формат</legend>
+            <div class="pick-grid">
+              <label class="pick-item"><input type="radio" name="when" value="Срочно"><span>Срочно</span></label>
+              <label class="pick-item"><input type="radio" name="when" value="В течение месяца" checked><span>В течение месяца</span></label>
+              <label class="pick-item"><input type="radio" name="when" value="Не горит / Обсудить"><span>Не горит</span></label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="brief-text">Пара слов о задаче или вакансии</label>
+            <textarea id="brief-text" class="brief-textarea" name="text" placeholder="Например: нужен асинхронный бэкенд на FastAPI с базой PostgreSQL и Telegram-ботом."></textarea>
+          </div>
+
+          <div class="brief-actions">
+            <button class="btn btn--primary" type="submit" value="tg">
+              <svg class="icon" aria-hidden="true"><use href="#i-telegram"></use></svg>
+              <span>Написать в Telegram</span>
+            </button>
+            <button class="btn btn--ghost" type="submit" value="copy">
+              <span>Скопировать заявку</span>
+            </button>
+          </div>
+
+          <p class="brief-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. REQUISITES & STAMP (IN LERK.TECH STYLE) -->
+  <section class="section section--band" id="stamp-section">
+    <div class="wrap">
+      <div class="stamp-card">
+        <div>
+          <h2 class="section__title" style="font-size:30px;">Карточка разработчика</h2>
+          <p style="font-size:15px; color:var(--text-2); margin-bottom:18px;">
+            Вся информация подтверждена открытым кодом и дипломами об образовании.
+          </p>
+          <dl class="facts-list" style="margin-bottom:0;">
+            <div class="fact-row"><dt>Профиль</dt><dd>Eksailed (Python Backend / Bot Developer)</dd></div>
+            <div class="fact-row"><dt>Образование</dt><dd>ДонНУ (2 курс бакалавриата) • ДТПА (диплом СПО)</dd></div>
+            <div class="fact-row"><dt>Воинский учет</dt><dd>Срочная служба пройдена, категория в военном билете подтверждена</dd></div>
+            <div class="fact-row"><dt>Резюме</dt><dd><a href="Resume_Python_Developer.docx" download="Resume_Python_Developer.docx">Скачать файл в формате Microsoft Word (.docx)</a></dd></div>
+          </dl>
+        </div>
+
+        <div class="stamp-wrap">
+          <!-- AUTHENTIC DEVELOPER STAMP WITH ROTATING PATH TEXT -->
+          <svg class="stamp-svg" viewBox="0 0 240 240" role="img" aria-label="Печать разработчика Eksailed">
+            <defs>
+              <path id="stamp-top-path" d="M30 120A90 90 0 0 1 210 120"/>
+              <path id="stamp-bot-path" d="M19 120A101 101 0 0 0 221 120"/>
+              <path id="stamp-mid-path" d="M49 120A71 71 0 1 1 191 120A71 71 0 1 1 49 120"/>
+            </defs>
+            <g class="stamp__ink">
+              <circle cx="120" cy="120" r="114" fill="none" stroke="currentColor" stroke-width="4"/>
+              <circle cx="120" cy="120" r="107" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="120" cy="120" r="84" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="120" cy="120" r="64" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="25" cy="120" r="2.8" fill="currentColor"/>
+              <circle cx="215" cy="120" r="2.8" fill="currentColor"/>
+              <text class="stamp__big" fill="currentColor"><textPath href="#stamp-top-path" startOffset="50%" text-anchor="middle">EKSAILED</textPath></text>
+              <text class="stamp__big" fill="currentColor"><textPath href="#stamp-bot-path" startOffset="50%" text-anchor="middle">PYTHON BACKEND</textPath></text>
+              <text class="stamp__small" fill="currentColor"><textPath href="#stamp-mid-path" textLength="436" lengthAdjust="spacing">ДОННУ • ДТПА • СЛУЖБА В ВС ПРОЙДЕНА • DOCKER & FASTAPI • </textPath></text>
+              <!-- Center Monogram -->
+              <text x="120" y="130" text-anchor="middle" font-family="var(--font-display)" font-size="34" font-weight="bold" fill="currentColor">E</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap foot__row">
+    <p>Eksailed — Python Developer. Донецкий национальный университет (2 курс) & ДТПА. <a href="Resume_Python_Developer.docx" download="Resume_Python_Developer.docx">Резюме Word</a></p>
+    <p>© 2026 github.com/Eksailed</p>
+  </div>
+</footer>
+
+<script src="main.js" defer></script>
+</body>
+</html>

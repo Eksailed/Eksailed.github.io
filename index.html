@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Eksailed — разработчик</title>
-  <meta name="description" content="Портфолио и резюме: Рождественский Даниил Андреевич (Eksailed). Бэкенд на Python (FastAPI, SQLAlchemy 2.0 Async), Telegram-боты и Mini Apps, Windows Forms C#, C++, Docker. Студент 2 курса ДонНУ, выпускник ДТПА, отслужил в армии.">
+  <meta name="description" content="Портфолио и резюме: Рождественский Даниил Андреевич (Eksailed). Разработка на Python (FastAPI, PostgreSQL), C# (Unity 6 VR, Windows Forms), JavaScript (Phaser 3, Яндекс.Игры SDK), Telegram-боты и Mini Apps на React. Студент 2 курса ДонНУ, выпускник ДТПА, отслужил в армии.">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -114,10 +114,10 @@
           <span class="badge badge--military">🎖 Срочная служба пройдена</span>
         </div>
 
-        <h1 class="hero__title">Python & C#-разработка, умные боты и&nbsp;<span>ИИ-сервисы</span></h1>
+        <h1 class="hero__title">Python & C#-разработка, Unity VR, <span>веб-игры & ИИ</span></h1>
         
         <p class="hero__lead">
-          Разрабатываю бэкенд на <strong>Python</strong> (FastAPI, PostgreSQL), десктопные приложения на <strong>C# (Windows Forms, WPF)</strong> и геймдев-механики на <strong>Unity Engine</strong>, высоконагруженные Telegram-боты на <strong>aiogram 3.x</strong>, Telegram Mini Apps на <strong>React 18</strong> и сервисы с интеграцией <strong>LLM-моделей</strong>. Всё упаковываю в <strong>Docker Compose</strong>.
+          Разрабатываю бэкенд на <strong>Python</strong> (FastAPI, PostgreSQL), интерактивные симуляторы и приложения на <strong>C# (Unity 6 VR, Windows Forms)</strong>, браузерные игры на <strong>JavaScript / Phaser 3</strong> под платформу <strong>Яндекс.Игры</strong>, Telegram-боты на <strong>aiogram 3.x</strong>, Mini Apps на <strong>React 18</strong> и сервисы с интеграцией <strong>LLM-моделей</strong>. Всё упаковываю в <strong>Docker</strong>.
         </p>
 
         <div class="hero__actions">
@@ -146,14 +146,14 @@
             </div>
           </div>
 
-          <!-- Front preview card: C# & WinForms -->
+          <!-- Front preview card: Unity 6 VR & C# -->
           <div class="stack__shot stack__shot--front">
             <div class="stack__shot-title">
               <svg class="icon" style="width:14px;height:14px;" aria-hidden="true"><use href="#i-code"></use></svg>
-              <span>Windows Forms C#</span>
+              <span>Unity 6 VR & C#</span>
             </div>
             <div class="stack__shot-code">
-              <code>Application.Run(<br>&nbsp;&nbsp;new MainForm());</code>
+              <code>xrOrigin.Move();<br>interactor.Select();<br>socket.Attach();</code>
             </div>
           </div>
 
@@ -229,20 +229,98 @@
           </div>
         </article>
 
-        <!-- Case 2: Football Bot (Half Bento) -->
+        <!-- Case 2: VR Simulator (Half Bento) -->
         <article class="case case--half">
           <div class="case__body">
             <div>
-              <span class="case__role">Свой проект</span>
-              <h3 class="case__title">Football Bot — Аналитика лиг и уведомления</h3>
+              <span class="case__role">Unity 6 VR & C#</span>
+              <h3 class="case__title">VR-Тренажёр — Интерактивный симулятор на Unity 6</h3>
               <p class="case__text">
-                Асинхронный сервис агрегации турнирных данных и результатов европейских футбольных лиг (АПЛ, Ла Лига, Серия А, Бундеслига, Лига чемпионов).
+                Виртуальный тренажёр для отработки последовательности сценариев пользователя. Разработан на Unity 6 с поддержкой OpenXR и XR Interaction Toolkit 3.0.
               </p>
               <ul class="case__highlights">
-                <li>Интеграция внешних REST API футбольной статистики с парсингом расписания</li>
-                <li>Фоновый планировщик задач (APScheduler) для регулярного обновления календаря</li>
-                <li>Автоматический экспорт сводной статистики в форматированный Excel (.xlsx) через openpyxl</li>
-                <li>Деплой и непрерывная работа в облачной инфраструктуре Railway с базой PostgreSQL</li>
+                <li>Двойной режим управления с переключением на лету: поддержка VR-шлемов (Meta Quest / SteamVR / XR Device Simulator) и режим ПК (клавиатура + мышь по F1)</li>
+                <li>Интерактивные VR-механики: захват предметов руками и лучом контроллера, сокеты для сборки деталей, поворотные рычаги и переключатели</li>
+                <li>Модульная архитектура компонентов на C# с глубокой интеграцией современной системы ввода Unity Input System</li>
+              </ul>
+            </div>
+
+            <div>
+              <ul class="tags">
+                <li>Unity 6</li><li>C#</li><li>XR Interaction Toolkit</li><li>OpenXR</li><li>VR Simulator</li><li>Input System</li>
+              </ul>
+              <a class="case__link" href="https://github.com/Eksailed/vrgametest" target="_blank" rel="noopener">
+                Репозиторий vrgametest <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Case 3: CatGame (Half Bento) -->
+        <article class="case case--half">
+          <div class="case__body">
+            <div>
+              <span class="case__role">GameDev & Яндекс.Игры</span>
+              <h3 class="case__title">Котопокалипсис: Выживание — Roguelite на Phaser 3</h3>
+              <p class="case__text">
+                Динамичный 2D экшен в стиле Vampire Survivors на движке Phaser 3, созданный специально для площадки Яндекс.Игры с поддержкой мобильных устройств и ПК.
+              </p>
+              <ul class="case__highlights">
+                <li>Проработанный геймплей: автоматическое прицеливание, орды противников (мыши, птицы, собаки, боссы), таймер выживания и сбор опыта</li>
+                <li>Арсенал из 14 видов оружия и пассивок: рыбный бумеранг, мурчащая аура, лазерная указка, колбы с валерьянкой, мяу-мины, цепная молния</li>
+                <li>Python-пайплайн ассетов: скрипты генерации анимированных спрайтшитов и автоматическая сборка zip-билдов под модерацию платформы</li>
+              </ul>
+            </div>
+
+            <div>
+              <ul class="tags">
+                <li>JavaScript</li><li>Phaser 3</li><li>WebGL Canvas</li><li>Яндекс Игры</li><li>Roguelite</li><li>Python Toolchain</li>
+              </ul>
+              <a class="case__link" href="https://github.com/Eksailed/CatGame" target="_blank" rel="noopener">
+                Репозиторий CatGame <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Case 4: SlimeCleeker (Third Bento) -->
+        <article class="case case--third">
+          <div class="case__body">
+            <div>
+              <span class="case__role">Web & SDK Яндекс</span>
+              <h3 class="case__title">Эволюция Слаймов — Merge & Clicker</h3>
+              <p class="case__text">
+                Браузерная игра слияния (Merge 4x4) и инкубатора с 20 уникальными уровнями слаймов и генерацией пассивного дохода.
+              </p>
+              <ul class="case__highlights">
+                <li>Полная интеграция Yandex Games SDK v2: Interstitial и Rewarded Video реклама с защитой от спама (кулдаун), облачные сохранения</li>
+                <li>Оффлайн-прогресс с начислением монет за время отсутствия, 5 веток магической прокачки и книга коллекций</li>
+              </ul>
+            </div>
+
+            <div>
+              <ul class="tags">
+                <li>JavaScript</li><li>Yandex Games SDK v2</li><li>Merge & Clicker</li><li>Cloud Saves</li>
+              </ul>
+              <a class="case__link" href="https://github.com/Eksailed/SlimeCleeker" target="_blank" rel="noopener">
+                Репозиторий SlimeCleeker <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Case 5: Football Bot (Third Bento) -->
+        <article class="case case--third">
+          <div class="case__body">
+            <div>
+              <span class="case__role">Бэкенд & Боты</span>
+              <h3 class="case__title">Football Bot — Аналитика лиг и отчеты</h3>
+              <p class="case__text">
+                Асинхронный сервис сбора турнирных таблиц, календаря матчей и уведомлений по европейским футбольным лигам.
+              </p>
+              <ul class="case__highlights">
+                <li>Интеграция внешних REST API спортивной статистики с фоновым планировщиком задач APScheduler</li>
+                <li>Автоматический экспорт форматированной аналитики в Excel (.xlsx) через openpyxl, деплой на Railway</li>
               </ul>
             </div>
 
@@ -257,20 +335,18 @@
           </div>
         </article>
 
-        <!-- Case 3: TheBestGameEver (Half Bento) -->
-        <article class="case case--half">
+        <!-- Case 6: TheBestGameEver (Third Bento) -->
+        <article class="case case--third">
           <div class="case__body">
             <div>
-              <span class="case__role">Gamedev & C#</span>
-              <h3 class="case__title">TheBestGameEver — 3D Action на Unity</h3>
+              <span class="case__role">3D Action & C#</span>
+              <h3 class="case__title">TheBestGameEver — 3D Экшен на Unity</h3>
               <p class="case__text">
-                Полноценный 3D экшен-шутер на движке Unity с проработанной игровой механикой, оружием и поведением противников.
+                3D экшен-шутер от третьего лица на движке Unity с проработанной физикой и боевой системой.
               </p>
               <ul class="case__highlights">
-                <li>Контроллер персонажа от 3-го лица с физикой, прыжками и обработкой столкновений</li>
-                <li>Боевая система: баллистика гранат, магия, спавн снарядов и система урона/здоровья</li>
-                <li>Искусственный интеллект врагов на конечных автоматах (FSM Enemy AI) и настраиваемые спавнеры</li>
-                <li>Чистая реализация паттернов ООП и компонентной модели Unity</li>
+                <li>Контроллер персонажа с физикой прыжков, ускорением и коллизиями</li>
+                <li>Искусственный интеллект противников на конечных автоматах (FSM Enemy AI), баллистика гранат и магии</li>
               </ul>
             </div>
 
@@ -307,12 +383,16 @@
             <svg class="icon" aria-hidden="true"><use href="#i-server"></use></svg>
             <span>FastAPI & Асинхронная БД</span>
           </button>
+          <button class="ai-tab" role="tab" id="tab-unity" aria-controls="panel-unity" aria-selected="false">
+            <svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>
+            <span>Unity 6 VR & GameDev</span>
+          </button>
           <button class="ai-tab" role="tab" id="tab-bots" aria-controls="panel-bots" aria-selected="false">
             <svg class="icon" aria-hidden="true"><use href="#i-robot"></use></svg>
-            <span>Боты & Telegram Mini Apps</span>
+            <span>Боты & Mini Apps</span>
           </button>
           <button class="ai-tab" role="tab" id="tab-infra" aria-controls="panel-infra" aria-selected="false">
-            <svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>
+            <svg class="icon" aria-hidden="true"><use href="#i-doc"></use></svg>
             <span>Docker & Архитектура</span>
           </button>
         </div>
@@ -433,6 +513,37 @@ services:
             </div>
           </div>
 
+          <!-- Panel 5: Unity VR & GameDev -->
+          <div class="ai-panel" role="tabpanel" id="panel-unity" aria-labelledby="tab-unity">
+            <div class="ai-panel__text">
+              <h3>VR-симуляторы и веб-игры с монетизацией</h3>
+              <p>Разработка виртуальных тренажёров на Unity 6 с поддержкой OpenXR и браузерных экшенов на Phaser 3 с монетизацией Яндекс.Игр.</p>
+              <ul class="checks">
+                <li>XR Interaction Toolkit 3.0.7: поддержка Meta Quest, SteamVR, XR Device Simulator и переключение на ПК (F1).</li>
+                <li>Физическое взаимодействие: захват лучами и руками, сборка деталей в сокеты, кинематические рычаги.</li>
+                <li>Браузерный геймдев на Phaser 3: архитектура Roguelite, волны монстров, частицы и оптимизация под мобильные.</li>
+                <li>Интеграция Yandex Games SDK v2: Rewarded Video, Interstitial с умным кулдауном, облачные сохранения прогресса.</li>
+              </ul>
+              <p class="ai-panel__where">Реализовано в проектах vrgametest, CatGame и SlimeCleeker.</p>
+            </div>
+            <div class="ai-panel__code">
+              <div class="code-preview">
+<span class="cm">// Unity 6: VR & PC Hybrid Controller</span>
+<span class="kw">public class</span> <span class="fn">SimulatorController</span> : MonoBehaviour {
+    [SerializeField] <span class="kw">private</span> GameObject vrRig;
+    [SerializeField] <span class="kw">private</span> GameObject pcRig;
+
+    <span class="kw">public void</span> <span class="fn">ToggleMode</span>() {
+        <span class="kw">bool</span> isVR = vrRig.activeSelf;
+        vrRig.SetActive(!isVR);
+        pcRig.SetActive(isVR);
+        Cursor.lockState = isVR ? CursorLockMode.Locked : CursorLockMode.None;
+    }
+}
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -484,9 +595,9 @@ services:
 
         <div class="service-card">
           <div class="service-card__icon"><svg class="icon"><use href="#i-arrow"></use></svg></div>
-          <h3>Десктоп C# / WinForms & C++</h3>
-          <p>Разработка прикладных настольных приложений на C# (Windows Forms, WPF) с привязкой к базам данных, алгоритмов на C++, а также игровых механик на Unity Engine.</p>
-          <div class="service-card__where">Windows Forms, C#, C++, Unity 3D, ООП</div>
+          <h3>Unity 6 VR, Веб-игры & C#</h3>
+          <p>Разработка виртуальных тренажёров на Unity 6 (XR Interaction Toolkit, OpenXR), браузерных экшенов на Phaser 3 с монетизацией Яндекс.Игр, а также приложений на C# (Windows Forms) и C++.</p>
+          <div class="service-card__where">Unity 6 VR, OpenXR, Phaser 3, Яндекс SDK, WinForms</div>
         </div>
       </div>
     </div>
@@ -500,7 +611,7 @@ services:
           <h2 class="section__title">Обо мне</h2>
         </header>
         <p>
-          Меня зовут <strong>Даниил Рождественский</strong> (в сети известен как <strong>Eksailed</strong>). Я разработчик на <strong>Python и C#</strong> с хорошей фундаментальной инженерной базой и тягой к чистому коду.
+          Меня зовут <strong>Рождественский Даниил Андреевич</strong> (в сети известен как <strong>Eksailed</strong>). Я разработчик на <strong>Python и C#</strong> (FastAPI, Unity 6 VR, Windows Forms, Phaser 3) с хорошей фундаментальной инженерной базой и тягой к чистому коду.
         </p>
         <p>
           Учусь на <strong>2 курсе Донецкого национального университета (ДонНУ)</strong>. До поступления в университет окончил <strong>Донецкий техникум промышленной автоматики (ДТПА)</strong>, получив диплом о среднем профессиональном образовании в сфере вычислительных систем и автоматики.
@@ -534,12 +645,12 @@ services:
 
         <h3 class="facts-card__sub">Основной стек</h3>
         <ul class="chips-list">
-          <li>Python 3.11</li><li>C# (Windows Forms, WPF)</li><li>C++</li><li>FastAPI</li><li>SQLAlchemy 2.0</li><li>asyncpg</li><li>aiogram 3</li><li>PostgreSQL</li><li>Redis</li><li>Docker</li><li>Git</li><li>Linux</li>
+          <li>Python 3.11</li><li>C# (Unity 6 VR, WinForms, WPF)</li><li>C++</li><li>JavaScript (Phaser 3)</li><li>FastAPI</li><li>SQLAlchemy 2.0</li><li>asyncpg</li><li>aiogram 3</li><li>PostgreSQL</li><li>Redis</li><li>Docker</li><li>Git</li><li>Linux</li>
         </ul>
 
-        <h3 class="facts-card__sub">ИИ и инструменты</h3>
+        <h3 class="facts-card__sub">ИИ, GameDev и SDK</h3>
         <ul class="chips-list chips-list--accent">
-          <li>Qwen 2.5 72B</li><li>OpenRouter</li><li>Telegram Stars</li><li>React 18</li><li>Unity C#</li>
+          <li>Qwen 2.5 72B</li><li>OpenRouter</li><li>XR Interaction Toolkit</li><li>OpenXR</li><li>Яндекс Игры SDK v2</li><li>Telegram Stars</li><li>React 18</li>
         </ul>
       </div>
     </div>
@@ -595,7 +706,9 @@ services:
               <label class="pick-item"><input type="checkbox" name="kind" value="Python-бэкенд (FastAPI)"><span>Python-бэкенд</span></label>
               <label class="pick-item"><input type="checkbox" name="kind" value="Telegram-бот (aiogram)"><span>Telegram-бот</span></label>
               <label class="pick-item"><input type="checkbox" name="kind" value="Telegram Mini App"><span>Telegram Mini App</span></label>
-              <label class="pick-item"><input type="checkbox" name="kind" value="Десктоп (Windows Forms C#)"><span>Десктоп (WinForms C#)</span></label>
+              <label class="pick-item"><input type="checkbox" name="kind" value="Unity 6 / VR-тренажёр"><span>Unity 6 / VR</span></label>
+              <label class="pick-item"><input type="checkbox" name="kind" value="Яндекс.Игры / Phaser 3"><span>Яндекс.Игры</span></label>
+              <label class="pick-item"><input type="checkbox" name="kind" value="Десктоп (WinForms C#)"><span>Десктоп (WinForms C#)</span></label>
               <label class="pick-item"><input type="checkbox" name="kind" value="Алгоритмы / C++"><span>C++ / Системное ПО</span></label>
               <label class="pick-item"><input type="checkbox" name="kind" value="Интеграция ИИ (LLM)"><span>Интеграция ИИ</span></label>
               <label class="pick-item"><input type="checkbox" name="kind" value="Вакансия в штат"><span>Вакансия в штат</span></label>
@@ -642,7 +755,7 @@ services:
             Вся информация подтверждена открытым кодом и дипломами об образовании.
           </p>
           <dl class="facts-list" style="margin-bottom:0;">
-            <div class="fact-row"><dt>ФИО / Профиль</dt><dd> Даниил Андреевич (Eksailed)</dd></div>
+            <div class="fact-row"><dt>ФИО / Профиль</dt><dd>Рождественский Даниил Андреевич (Eksailed)</dd></div>
             <div class="fact-row"><dt>Образование</dt><dd>ДонНУ (2 курс бакалавриата) • ДТПА (диплом СПО)</dd></div>
             <div class="fact-row"><dt>Воинский учет</dt><dd>Срочная служба пройдена, категория в военном билете подтверждена</dd></div>
             <div class="fact-row"><dt>Резюме</dt><dd><a href="Resume_Python_Developer.docx" download="Resume_Python_Developer.docx">Скачать файл в формате Microsoft Word (.docx)</a></dd></div>
@@ -681,7 +794,7 @@ services:
 <!-- FOOTER -->
 <footer class="foot">
   <div class="wrap foot__row">
-    <p>Даниил Андреевич (Eksailed) — Python Developer. Донецкий национальный университет (2 курс) & ДТПА. <a href="Resume_Python_Developer.docx" download="Resume_Python_Developer.docx">Резюме Word</a></p>
+    <p>Рождественский Даниил Андреевич (Eksailed) — Python & C# Developer. Донецкий национальный университет (2 курс) & ДТПА. <a href="Resume_Python_Developer.docx" download="Resume_Python_Developer.docx">Резюме Word</a></p>
     <p>© 2026 github.com/Eksailed</p>
   </div>
 </footer>

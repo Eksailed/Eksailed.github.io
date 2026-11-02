@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Eksailed — разработчик</title>
-  <meta name="description" content="Портфолио и резюме: Рождественский Даниил Андреевич (Eksailed). Разработка на Python (FastAPI, PostgreSQL), C# (Unity 6 VR, Windows Forms), JavaScript (Phaser 3, Яндекс.Игры SDK), Telegram-боты и Mini Apps на React. Студент 2 курса ДонНУ, выпускник ДТПА, отслужил в армии.">
+  <meta name="description" content="Портфолио и резюме: Рождественский Даниил Андреевич (Eksailed). Разработка на Python (FastAPI, PostgreSQL), C# (.NET 9, ASP.NET Core, Blazor, Unity 6 VR, Windows Forms), JavaScript (Phaser 3, Яндекс.Игры SDK), Telegram-боты и Mini Apps на React. Студент 2 курса ДонНУ, выпускник ДТПА, отслужил в армии.">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -117,7 +117,7 @@
         <h1 class="hero__title">Python & C#-разработка, геймдев, <span>веб-игры & ИИ</span></h1>
         
         <p class="hero__lead">
-          Разрабатываю бэкенд на <strong>Python</strong> (FastAPI, PostgreSQL), симуляторы и приложения на <strong>C# (Unity VR — тестовые задания, Windows Forms)</strong>, браузерные игры на <strong>JavaScript / Phaser 3</strong> под платформу <strong>Яндекс.Игры</strong>, Telegram-боты на <strong>aiogram 3.x</strong>, Mini Apps на <strong>React 18</strong> и сервисы с интеграцией <strong>LLM-моделей</strong>. Всё упаковываю в <strong>Docker</strong>.
+          Разрабатываю бэкенд на <strong>Python</strong> (FastAPI, PostgreSQL) и <strong>C# / .NET 9</strong> (ASP.NET Core, Blazor, EF Core), симуляторы и приложения на <strong>C# (Unity VR — тестовые задания, Windows Forms)</strong>, браузерные игры на <strong>JavaScript / Phaser 3</strong> под платформу <strong>Яндекс.Игры</strong>, Telegram-боты на <strong>aiogram 3.x</strong>, Mini Apps на <strong>React 18</strong> и сервисы с интеграцией <strong>LLM-моделей</strong>. Всё упаковываю в <strong>Docker</strong>.
         </p>
 
         <div class="hero__actions">
@@ -178,11 +178,66 @@
 
       <div class="bento">
 
+        <!-- Case 1b: MiniBank (Half Bento) -->
+        <article class="case case--half">
+          <div class="case__body">
+            <div>
+              <span class="case__role">Бэкенд • C# / .NET 9</span>
+              <h3 class="case__title">MiniBank — Банковский бэкенд на .NET</h3>
+              <p class="case__text">
+                Учебный банковский бэкенд на ASP.NET Core: счета, переводы, леджер с двойной записью, идемпотентность запросов и корректность при параллельных операциях. Веб-клиент на React + TypeScript. Деньги не настоящие.
+              </p>
+              <ul class="case__highlights">
+                <li>Двойная запись: каждый перевод — две проводки, проводки только добавляются, UPDATE/DELETE запрещены триггерами в БД</li>
+                <li>Идемпотентность через <code>Idempotency-Key</code> и пессимистичные блокировки <code>FOR UPDATE</code> в едином порядке — без двойного списания и взаимоблокировок</li>
+                <li>JWT-вход, подтверждение email, владение счетами, лимиты, выписки с экспортом в CSV</li>
+                <li>Интеграционные тесты на Testcontainers, Docker Compose, CI в GitHub Actions. Этапы 1–4 из 6 готовы</li>
+              </ul>
+            </div>
+
+            <div>
+              <ul class="tags">
+                <li>C#</li><li>ASP.NET Core (.NET 9)</li><li>EF Core 9</li><li>PostgreSQL 17</li><li>JWT</li><li>React</li><li>TypeScript</li><li>Docker</li><li>GitHub Actions</li>
+              </ul>
+              <a class="case__link" href="https://github.com/Eksailed/MiniBank" target="_blank" rel="noopener">
+                Репозиторий MiniBank <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Case 1c: UptimeWatch (Half Bento) -->
+        <article class="case case--half">
+          <div class="case__body">
+            <div>
+              <span class="case__role">Веб-сервис • C# / .NET 9</span>
+              <h3 class="case__title">UptimeWatch — Мониторинг доступности сайтов</h3>
+              <p class="case__text">
+                Сервис на Blazor Server: пользователь добавляет сайты, фоновый планировщик проверяет их, ведёт историю и аптайм, открывает инциденты и присылает алерты в Telegram о падении и восстановлении.
+              </p>
+              <ul class="case__highlights">
+                <li>Живой дашборд без перезагрузки страницы на Blazor Server и SignalR</li>
+                <li>Защита от SSRF на уровне соединения: проверка IP при каждом резолве и редиректе, запрет loopback и приватных сетей</li>
+                <li>Аренда мониторов через <code>FOR UPDATE SKIP LOCKED</code>, инциденты после 3 неудачных проверок подряд, ASP.NET Core Identity</li>
+                <li>Интерфейс на русском и английском (RU | EN), Clean Architecture, xUnit + Testcontainers, CI</li>
+              </ul>
+            </div>
+
+            <div>
+              <ul class="tags">
+                <li>C#</li><li>Blazor Server</li><li>SignalR</li><li>EF Core</li><li>PostgreSQL 17</li><li>Identity</li><li>Telegram Bot API</li><li>Docker Compose</li><li>xUnit</li>
+              </ul>
+              <a class="case__link" href="https://github.com/Eksailed/UptimeWatch" target="_blank" rel="noopener">
+                Репозиторий UptimeWatch <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
         <!-- Case 1: AstroBot (Hero Bento) -->
         <article class="case case--hero">
           <div class="case__body">
             <div>
-              <span class="case__role case__role--own">Флагманский проект</span>
               <h3 class="case__title">AstroBot — Персональный AI-астролог + Mini App</h3>
               <p class="case__text">
                 Полноценная экосистема персонализированного астрологического сервиса: высокоточные астрономические расчеты швейцарских эфемерид (Swiss Ephemeris), контекстный чат с ИИ на базе <strong>Qwen 2.5 72B</strong>, Telegram Stars монетизация и встроенный интерактивный Mini App на React 18.
@@ -361,6 +416,53 @@
           </div>
         </article>
 
+        <!-- Case 7: Drag a Beast (Hero Bento) -->
+        <article class="case case--hero">
+          <div class="case__body">
+            <div>
+              <span class="case__role">Roblox • Командный проект • В разработке</span>
+              <h3 class="case__title">Drag a Beast Home — Кооперативный steal-тайкун на Roblox (в разработке)</h3>
+              <p class="case__text">
+                Игра для Roblox на двоих разработчиков: оглуши чудище, привяжи верёвку и дотащи до базы, пока другие игроки пытаются перерезать верёвку и увести добычу. Сейчас готов первый вертикальный срез — карта и чудища создаются кодом.
+              </p>
+              <ul class="case__highlights">
+                <li>Дизайн-документ, PRD, исследование ниши и план MVP на 4 недели; задачи разбиты на вертикальные срезы в ROADMAP</li>
+                <li>Код в Git и синхронизация со Studio через Rojo; сервер, клиент и общие модули разделены по папкам</li>
+                <li>Весь баланс первого среза вынесен в один <code>Config.luau</code> — правится без изменения логики</li>
+              </ul>
+            </div>
+
+            <div>
+              <ul class="tags">
+                <li>Luau</li><li>Roblox Studio</li><li>Rojo</li><li>Game Design</li><li>Git</li>
+              </ul>
+              <a class="case__link" href="https://github.com/Eksailed/drag-a-beast" target="_blank" rel="noopener">
+                Репозиторий drag-a-beast <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="case__media">
+            <div class="code-preview">
+<span class="cm">-- src/shared/Config.luau: весь баланс в одном месте</span>
+<span class="kw">local</span> Config = {}
+
+Config.StunRange = <span class="fn">14</span>      <span class="cm">-- студов до чудища</span>
+Config.StunCooldown = <span class="fn">1.5</span>  <span class="cm">-- секунд между оглушениями</span>
+Config.StunDuration = <span class="fn">60</span>   <span class="cm">-- пока чудище оглушено</span>
+Config.RopeLength = <span class="fn">10</span>
+
+Config.Beasts = {
+    Common = {
+        DisplayName = <span class="str">"Грибун"</span>,
+        Reward = <span class="fn">10</span>,
+    },
+}
+<span class="kw">return</span> Config
+            </div>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
@@ -386,6 +488,10 @@
           <button class="ai-tab" role="tab" id="tab-unity" aria-controls="panel-unity" aria-selected="false">
             <svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>
             <span>Unity 6 VR & GameDev</span>
+          </button>
+          <button class="ai-tab" role="tab" id="tab-dotnet" aria-controls="panel-dotnet" aria-selected="false">
+            <svg class="icon" aria-hidden="true"><use href="#i-server"></use></svg>
+            <span>C# / .NET бэкенд</span>
           </button>
           <button class="ai-tab" role="tab" id="tab-bots" aria-controls="panel-bots" aria-selected="false">
             <svg class="icon" aria-hidden="true"><use href="#i-robot"></use></svg>
@@ -449,6 +555,33 @@
         <span class="kw">async with</span> self.session_pool() <span class="kw">as</span> session:
             data[<span class="str">"session"</span>] = session
             <span class="kw">return await</span> handler(event, data)
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel: C# / .NET backend -->
+          <div class="ai-panel" role="tabpanel" id="panel-dotnet" aria-labelledby="tab-dotnet">
+            <div class="ai-panel__text">
+              <h3>Корректные деньги и надёжные фоновые задачи на .NET 9</h3>
+              <p>ASP.NET Core, EF Core и PostgreSQL: бизнес-правила в доменном слое, а гонки и повторы запросов закрыты на уровне базы данных.</p>
+              <ul class="checks">
+                <li>Двойная запись в леджере, идемпотентные операции по <code>Idempotency-Key</code>, блокировки счетов в едином порядке и автоповтор при 40001/40P01.</li>
+                <li>Фоновый планировщик с арендой задач через <code>FOR UPDATE SKIP LOCKED</code> и живой дашборд на Blazor Server + SignalR.</li>
+                <li>Безопасность: JWT, подтверждение email, лимиты запросов, защита от SSRF на уровне соединения.</li>
+                <li>Интеграционные тесты на xUnit + Testcontainers, CI в GitHub Actions, запуск одной командой через Docker Compose.</li>
+              </ul>
+              <p class="ai-panel__where">Реализовано в проектах MiniBank и UptimeWatch.</p>
+            </div>
+            <div class="ai-panel__code">
+              <div class="code-preview">
+<span class="cm">-- Блокировка обоих счетов в одном порядке</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> accounts
+<span class="kw">WHERE</span> id = <span class="kw">ANY</span>(@ids)
+<span class="kw">ORDER BY</span> id
+<span class="kw">FOR UPDATE</span>;
+
+<span class="cm">-- Встречные переводы не создают взаимоблокировок;</span>
+<span class="cm">-- при SQLSTATE 40001/40P01 операция повторяется до 3 раз</span>
               </div>
             </div>
           </div>
@@ -560,9 +693,9 @@ services:
       <div class="services-grid">
         <div class="service-card">
           <div class="service-card__icon"><svg class="icon"><use href="#i-server"></use></svg></div>
-          <h3>Бэкенд на Python & REST API</h3>
-          <p>Проектирование и разработка масштабируемых API на FastAPI, чистая архитектура, строгая валидация Pydantic, безопасность и авторизация.</p>
-          <div class="service-card__where">FastAPI, SQLAlchemy 2.0, asyncpg, Alembic</div>
+          <h3>Бэкенд на Python, C# / .NET & REST API</h3>
+          <p>Проектирование и разработка API на FastAPI и ASP.NET Core, чистая архитектура, строгая валидация, безопасность и авторизация (JWT), идемпотентность и корректность при параллельных запросах.</p>
+          <div class="service-card__where">FastAPI, SQLAlchemy 2.0, ASP.NET Core, EF Core, Blazor</div>
         </div>
 
         <div class="service-card">
@@ -611,7 +744,7 @@ services:
           <h2 class="section__title">Обо мне</h2>
         </header>
         <p>
-          Меня зовут <strong>Рождественский Даниил Андреевич</strong> (в сети известен как <strong>Eksailed</strong>). Я разработчик на <strong>Python и C#</strong> (FastAPI, Unity 6 VR, Windows Forms, Phaser 3) с хорошей фундаментальной инженерной базой и тягой к чистому коду.
+          Меня зовут <strong>Рождественский Даниил Андреевич</strong> (в сети известен как <strong>Eksailed</strong>). Я разработчик на <strong>Python и C#</strong> (FastAPI, ASP.NET Core, Blazor, Unity 6 VR, Windows Forms, Phaser 3) с хорошей фундаментальной инженерной базой и тягой к чистому коду.
         </p>
         <p>
           Учусь на <strong>2 курсе Донецкого национального университета (ДонНУ)</strong>. До поступления в университет окончил <strong>Донецкий техникум промышленной автоматики (ДТПА)</strong>, получив диплом о среднем профессиональном образовании в сфере вычислительных систем и автоматики.
@@ -645,12 +778,12 @@ services:
 
         <h3 class="facts-card__sub">Основной стек</h3>
         <ul class="chips-list">
-          <li>Python 3.11</li><li>C# (WinForms, WPF, Unity)</li><li>C++</li><li>JavaScript (Phaser 3)</li><li>FastAPI</li><li>SQLAlchemy 2.0</li><li>asyncpg</li><li>aiogram 3</li><li>PostgreSQL</li><li>Redis</li><li>Docker</li><li>Git</li><li>Linux</li>
+          <li>Python 3.11</li><li>C# (.NET 9, WinForms, WPF, Unity)</li><li>C++</li><li>JavaScript (Phaser 3)</li><li>TypeScript</li><li>FastAPI</li><li>ASP.NET Core</li><li>Blazor</li><li>EF Core</li><li>SQLAlchemy 2.0</li><li>asyncpg</li><li>aiogram 3</li><li>PostgreSQL</li><li>Redis</li><li>Docker</li><li>Git</li><li>Linux</li>
         </ul>
 
         <h3 class="facts-card__sub">ИИ, GameDev и SDK</h3>
         <ul class="chips-list chips-list--accent">
-          <li>Qwen 2.5 72B</li><li>OpenRouter</li><li>Unity VR (тестовое задание)</li><li>OpenXR</li><li>Яндекс Игры SDK v2</li><li>Telegram Stars</li><li>React 18</li>
+          <li>Qwen 2.5 72B</li><li>OpenRouter</li><li>Roblox / Luau</li><li>Unity VR (тестовое задание)</li><li>OpenXR</li><li>Яндекс Игры SDK v2</li><li>Telegram Stars</li><li>React 18</li>
         </ul>
       </div>
     </div>
@@ -704,6 +837,7 @@ services:
             <legend>Что требуется</legend>
             <div class="pick-grid">
               <label class="pick-item"><input type="checkbox" name="kind" value="Python-бэкенд (FastAPI)"><span>Python-бэкенд</span></label>
+              <label class="pick-item"><input type="checkbox" name="kind" value="C# / .NET бэкенд (ASP.NET Core)"><span>C# / .NET бэкенд</span></label>
               <label class="pick-item"><input type="checkbox" name="kind" value="Telegram-бот (aiogram)"><span>Telegram-бот</span></label>
               <label class="pick-item"><input type="checkbox" name="kind" value="Telegram Mini App"><span>Telegram Mini App</span></label>
               <label class="pick-item"><input type="checkbox" name="kind" value="Unity 6 / VR-тренажёр"><span>Unity 6 / VR</span></label>

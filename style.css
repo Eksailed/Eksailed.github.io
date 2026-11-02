@@ -389,6 +389,15 @@ h1, h2, h3, h4, .brand__name {
   display: none;
 }
 
+/* Burger / close icon state */
+.nav-toggle .icon--close,
+.nav-toggle[aria-expanded="true"] .icon--menu {
+  display: none;
+}
+.nav-toggle[aria-expanded="true"] .icon--close {
+  display: block;
+}
+
 /* Theme toggle icon state */
 .icon--moon, .icon--sun {
   display: none;

@@ -191,13 +191,14 @@
                 <li>Двойная запись: каждый перевод — две проводки, проводки только добавляются, UPDATE/DELETE запрещены триггерами в БД</li>
                 <li>Идемпотентность через <code>Idempotency-Key</code> и пессимистичные блокировки <code>FOR UPDATE</code> в едином порядке — без двойного списания и взаимоблокировок</li>
                 <li>JWT-вход, подтверждение email, владение счетами, лимиты, выписки с экспортом в CSV</li>
-                <li>Интеграционные тесты на Testcontainers, Docker Compose, CI в GitHub Actions. Этапы 1–4 из 6 готовы</li>
+                <li>События по паттерну outbox через RabbitMQ с дедупликацией у потребителя, уведомления в Telegram с повторами доставки</li>
+                <li>Интеграционные тесты на Testcontainers, Docker Compose, CI в GitHub Actions. Все 6 этапов готовы</li>
               </ul>
             </div>
 
             <div>
               <ul class="tags">
-                <li>C#</li><li>ASP.NET Core (.NET 9)</li><li>EF Core 9</li><li>PostgreSQL 17</li><li>JWT</li><li>React</li><li>TypeScript</li><li>Docker</li><li>GitHub Actions</li>
+                <li>C#</li><li>ASP.NET Core (.NET 9)</li><li>EF Core 9</li><li>PostgreSQL 17</li><li>JWT</li><li>RabbitMQ</li><li>React</li><li>TypeScript</li><li>Docker</li><li>GitHub Actions</li>
               </ul>
               <a class="case__link" href="https://github.com/Eksailed/MiniBank" target="_blank" rel="noopener">
                 Репозиторий MiniBank <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
